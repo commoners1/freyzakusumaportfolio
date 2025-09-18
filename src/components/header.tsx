@@ -40,7 +40,7 @@ export function Header() {
           <Code className="h-6 w-6 text-primary" />
           <span className="font-bold text-lg">Freyza Kusuma</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-base font-medium ml-auto">
+        <nav className="hidden md:flex items-center gap-6 text-lg font-medium ml-auto">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -60,7 +60,7 @@ export function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="bg-background border-r-primary/20">
-            <nav className="grid gap-6 text-lg font-medium pt-8">
+            <nav className="grid gap-6 text-xl font-medium pt-8">
               <Link
                 href="#"
                 className="flex items-center gap-2 text-lg font-semibold mb-4"

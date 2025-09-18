@@ -69,7 +69,7 @@ export function ContactForm() {
                   <FormControl>
                     <Input placeholder=" " {...field} className="peer" />
                   </FormControl>
-                  <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-5 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Name</FormLabel>
+                  <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-1/2 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1/2 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Name</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}
@@ -82,7 +82,7 @@ export function ContactForm() {
                   <FormControl>
                     <Input placeholder=" " {...field} className="peer" />
                   </FormControl>
-                   <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-5 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Email</FormLabel>
+                   <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-1/2 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1/2 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Email</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}
@@ -99,7 +99,7 @@ export function ContactForm() {
                       {...field}
                     />
                   </FormControl>
-                  <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-5 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Message</FormLabel>
+                  <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-5 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:top-5 peer-focus:top-5 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Message</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}

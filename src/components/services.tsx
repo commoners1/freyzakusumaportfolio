@@ -33,7 +33,7 @@ export function Services() {
         </div>
         <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 pt-12">
           {services.map((service, index) => (
-            <div key={service.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000 group" style={{animationDelay: `${index * 150}ms`}}>
+            <div key={service.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000 group" style={{animationDelay: `${index * 150}ms`, perspective: '1000px'}}>
             <Card className="h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <CardHeader className="items-center text-center gap-4 p-8">

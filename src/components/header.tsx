@@ -70,17 +70,17 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-primary hover:bg-primary/10 hover:text-primary relative h-8 w-8"
+                className="text-primary hover:bg-primary/10 hover:text-primary relative h-10 w-10"
               >
                 <Menu
                   className={cn(
-                    "h-5 w-5 transition-all",
+                    "h-6 w-6 transition-all",
                     mobileMenuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
                   )}
                 />
                 <X
                   className={cn(
-                    "h-5 w-5 absolute transition-all",
+                    "h-6 w-6 absolute transition-all",
                     mobileMenuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
                   )}
                 />
@@ -89,10 +89,10 @@ export function Header() {
             </CollapsibleTrigger>
           </div>
         </div>
-        <CollapsibleContent className="md:hidden absolute w-full bg-background/95 backdrop-blur-lg border-b border-primary/20 shadow-[0_4px_10px_-5px_hsl(var(--primary))]">
+        <CollapsibleContent className="md:hidden absolute w-full bg-background/95 backdrop-blur-lg border-b border-primary/20 shadow-[0_4px_10px_-5px_hsl(var(--primary))] overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
           <nav className="grid gap-4 text-center text-lg font-medium p-4">
             {navLinks.map((link, index) => (
-              <div key={link.href} className="animate-in fade-in slide-in-from-top-4" style={{animationDelay: `${(index + 1) * 100}ms`}}>
+              <div key={link.href} className="animate-in fade-in slide-in-from-top-4" style={{animationDelay: `${(index + 1) * 100}ms`, animationFillMode: 'both'}}>
               <Link
                 href={link.href}
                 className="hover:text-primary transition-colors duration-300 py-2"

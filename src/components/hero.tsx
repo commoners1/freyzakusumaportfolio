@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full py-24 md:py-32 lg:py-40 overflow-hidden"
+      className="relative w-full py-24 md:py-32 lg:py-40 overflow-hidden scroll-mt-16"
     >
       <div className="absolute inset-0 bg-grid opacity-20"></div>
        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>

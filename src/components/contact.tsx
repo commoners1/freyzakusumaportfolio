@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export function Contact() {
   return (
-    <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-background/80 backdrop-blur-md">
+    <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-background/80 backdrop-blur-md scroll-mt-16">
       <div className="container grid items-center justify-center gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-16 lg:text-left mx-auto">
-        <div className="space-y-6 animate-in fade-in slide-in-from-left-12 duration-1000 text-center lg:text-left">
+        <div className="space-y-6 animate-in fade-in slide-in-from-left-12 duration-1000 lg:text-left">
           <div className="space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
               Get in Touch

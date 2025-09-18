@@ -89,11 +89,11 @@ export function Header() {
             </CollapsibleTrigger>
           </div>
         </div>
-        <CollapsibleContent className="md:hidden">
-          <nav className="grid gap-4 text-center text-lg font-medium p-4 border-t border-primary/20">
-            {navLinks.map((link) => (
+        <CollapsibleContent className="md:hidden absolute w-full bg-background/95 backdrop-blur-lg border-b border-primary/20 shadow-[0_4px_10px_-5px_hsl(var(--primary))]">
+          <nav className="grid gap-4 text-center text-lg font-medium p-4">
+            {navLinks.map((link, index) => (
+              <div key={link.href} className="animate-in fade-in slide-in-from-top-4" style={{animationDelay: `${(index + 1) * 100}ms`}}>
               <Link
-                key={link.href}
                 href={link.href}
                 className="hover:text-primary transition-colors duration-300 py-2"
                 prefetch={false}
@@ -101,6 +101,7 @@ export function Header() {
               >
                 {link.label}
               </Link>
+              </div>
             ))}
           </nav>
         </CollapsibleContent>

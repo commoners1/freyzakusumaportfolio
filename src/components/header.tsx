@@ -35,12 +35,12 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container flex h-16 items-center mx-auto">
-        <Link href="#" className="mr-6 flex items-center gap-2" prefetch={false}>
+      <div className="container flex h-16 items-center justify-between mx-auto">
+        <Link href="#" className="flex items-center gap-2" prefetch={false}>
           <Code className="h-8 w-8 text-primary" />
           <span className="font-bold text-2xl">Freyza Kusuma</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-[1.05rem] font-medium ml-auto">
+        <nav className="hidden md:flex items-center gap-6 text-[1.05rem] font-medium">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -54,7 +54,7 @@ export function Header() {
         </nav>
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="ml-auto md:hidden border-primary/50 text-primary hover:bg-primary/10 hover:text-primary">
+            <Button variant="outline" size="icon" className="md:hidden border-primary/50 text-primary hover:bg-primary/10 hover:text-primary">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>

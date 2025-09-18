@@ -29,13 +29,13 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 py-4",
+        "sticky top-0 z-50 w-full transition-all duration-300 py-3",
         scrolled
           ? "border-b border-primary/20 bg-background/80 backdrop-blur-lg shadow-[0_4px_10px_-5px_hsl(var(--primary))]"
           : "bg-transparent"
       )}
     >
-      <div className="container flex h-20 items-center mx-auto">
+      <div className="container flex h-16 items-center mx-auto">
         <Link href="#" className="mr-6 flex items-center gap-2" prefetch={false}>
           <Code className="h-8 w-8 text-primary" />
           <span className="font-bold text-2xl">Freyza Kusuma</span>

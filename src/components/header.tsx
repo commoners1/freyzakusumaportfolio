@@ -31,11 +31,11 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-primary/20 bg-background/80 backdrop-blur-lg"
+          ? "border-b border-primary/20 bg-background/80 backdrop-blur-lg shadow-[0_4px_10px_-5px_hsl(var(--primary))]"
           : "bg-transparent"
       )}
     >
-      <div className="container flex h-16 items-center">
+      <div className="container flex h-16 items-center mx-auto">
         <Link href="#" className="mr-6 flex items-center gap-2" prefetch={false}>
           <Code className="h-6 w-6 text-primary" />
           <span className="font-bold text-lg">Freyza Kusuma</span>

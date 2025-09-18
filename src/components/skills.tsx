@@ -9,7 +9,7 @@ const skillsList = [
 export function Skills() {
   return (
     <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-background/80 backdrop-blur-md">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center animate-in fade-in slide-in-from-bottom-12 duration-1000">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">My Skills</h2>

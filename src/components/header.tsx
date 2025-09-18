@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Code, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -60,6 +60,8 @@ export function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="bg-background border-r-primary/20">
+            <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+            <SheetDescription className="sr-only">A list of links to navigate the website.</SheetDescription>
             <nav className="grid gap-6 text-xl font-medium pt-8">
               <Link
                 href="#"

@@ -37,10 +37,10 @@ export function Header() {
     >
       <div className="container flex h-16 items-center mx-auto">
         <Link href="#" className="mr-6 flex items-center gap-2" prefetch={false}>
-          <Code className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg">Freyza Kusuma</span>
+          <Code className="h-7 w-7 text-primary" />
+          <span className="font-bold text-xl">Freyza Kusuma</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-lg font-medium ml-auto">
+        <nav className="hidden md:flex items-center gap-6 text-xl font-medium ml-auto">
           {navLinks.map((link) => (
             <Link
               key={link.href}

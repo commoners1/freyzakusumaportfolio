@@ -74,13 +74,13 @@ export function Header() {
               >
                 <Menu
                   className={cn(
-                    "h-6 w-6 transition-all",
+                    "h-7 w-7 transition-all",
                     mobileMenuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
                   )}
                 />
                 <X
                   className={cn(
-                    "h-6 w-6 absolute transition-all",
+                    "h-7 w-7 absolute transition-all",
                     mobileMenuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
                   )}
                 />

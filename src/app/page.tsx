@@ -5,11 +5,10 @@ import { Skills } from "@/components/skills";
 import { Portfolio } from "@/components/portfolio";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
-import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex min-h-screen w-full flex-col bg-gradient-animated">
       <Header />
       <main className="flex-1">
         <Hero />

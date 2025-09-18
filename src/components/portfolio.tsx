@@ -39,7 +39,7 @@ export function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32">
+    <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32 bg-background/80 backdrop-blur-md">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center animate-in fade-in slide-in-from-bottom-12 duration-1000">
           <div className="space-y-2">
@@ -53,34 +53,37 @@ export function Portfolio() {
           {projects.map((project, index) => {
             const projectImage = getImage(project.id);
             return (
-              <div key={project.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000" style={{animationDelay: `${index * 150}ms`}}>
-                <Card className="overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  {projectImage && (
-                    <Image
-                      src={projectImage.imageUrl}
-                      alt={project.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-60 object-cover"
-                      data-ai-hint={projectImage.imageHint}
-                    />
-                  )}
+              <div key={project.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000 group" style={{animationDelay: `${index * 150}ms`, perspective: '1000px'}}>
+                <Card className="overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>
+                  <div className="relative">
+                    {projectImage && (
+                      <Image
+                        src={projectImage.imageUrl}
+                        alt={project.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105"
+                        data-ai-hint={projectImage.imageHint}
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  </div>
                   <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
+                    <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
                     <CardDescription>{project.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary">{tag}</Badge>
+                        <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">{tag}</Badge>
                       ))}
                     </div>
                   </CardContent>
                   <CardFooter className="flex gap-2">
-                    <Button asChild>
+                    <Button asChild className="transition-transform duration-300 hover:scale-105">
                       <Link href="#">Live Demo <ArrowUpRight /></Link>
                     </Button>
-                    <Button asChild variant="outline">
+                    <Button asChild variant="secondary" className="transition-transform duration-300 hover:scale-105">
                       <Link href="#">View Code</Link>
                     </Button>
                   </CardFooter>

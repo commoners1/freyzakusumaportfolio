@@ -56,7 +56,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="bg-background/50">
+    <Card className="bg-card/50 border-border/50 backdrop-blur-lg">
       <CardContent className="p-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -67,7 +67,7 @@ export function ContactForm() {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your Name" {...field} />
+                    <Input placeholder="Your Name" {...field} className="bg-input/50" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -80,7 +80,7 @@ export function ContactForm() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="your.email@example.com" {...field} />
+                    <Input placeholder="your.email@example.com" {...field} className="bg-input/50" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -95,7 +95,7 @@ export function ContactForm() {
                   <FormControl>
                     <Textarea
                       placeholder="Tell me about your project or just say hi!"
-                      className="min-h-[120px]"
+                      className="min-h-[120px] bg-input/50"
                       {...field}
                     />
                   </FormControl>
@@ -103,7 +103,7 @@ export function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+            <Button type="submit" className="w-full text-lg py-6 rounded-full transition-transform duration-300 hover:scale-105" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

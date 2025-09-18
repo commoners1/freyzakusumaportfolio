@@ -8,7 +8,7 @@ const skillsList = [
 
 export function Skills() {
   return (
-    <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-accent/30">
+    <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-background/80 backdrop-blur-md">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center animate-in fade-in slide-in-from-bottom-12 duration-1000">
           <div className="space-y-2">
@@ -19,8 +19,8 @@ export function Skills() {
           </div>
           <div className="flex flex-wrap justify-center gap-4 pt-8 max-w-4xl">
             {skillsList.map((skill, index) => (
-              <div key={skill} className="animate-in fade-in zoom-in-50 duration-500" style={{animationDelay: `${index * 50}ms`}}>
-                <Badge variant="secondary" className="text-lg py-2 px-6 transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-110 hover:shadow-lg hover:shadow-primary/20 bg-secondary/50 border border-primary/20 text-foreground">
+              <div key={skill} className="animate-in fade-in zoom-in-50 duration-500 group" style={{animationDelay: `${index * 50}ms`, perspective: '1000px'}}>
+                <Badge variant="secondary" className="text-lg py-2 px-6 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover:border-primary/50 text-foreground" style={{ transformStyle: 'preserve-3d' }}>
                   {skill}
                 </Badge>
               </div>

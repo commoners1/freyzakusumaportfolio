@@ -56,7 +56,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="bg-card/50 border-border/50 backdrop-blur-lg">
+    <Card className="transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>
       <CardContent className="p-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

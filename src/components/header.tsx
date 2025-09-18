@@ -35,7 +35,7 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container flex h-16 items-center justify-between mx-auto">
+      <div className="container flex h-16 items-center justify-between mx-auto px-4 md:px-6">
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
           <Code className="h-8 w-8 text-primary" />
           <span className="font-bold text-2xl">Freyza Kusuma</span>

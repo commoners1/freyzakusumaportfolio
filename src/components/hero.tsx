@@ -1,8 +1,16 @@
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { TypingAnimation } from "./typing-animation";
 
 export function Hero() {
+  const creativeRoles = [
+    "Creative Web Developer",
+    "Frontend Specialist",
+    "UI/UX Enthusiast",
+    "React Fanatic",
+  ];
+
   return (
     <section
       id="hero"
@@ -29,9 +37,13 @@ export function Hero() {
               <h1 className="text-4xl font-extrabold tracking-tighter sm:text-6xl xl:text-7xl/none font-headline text-white animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
                 Freyza Kusuma
               </h1>
-              <p className="text-2xl text-cyan-400 font-semibold animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
-                Creative Web Developer
-              </p>
+              <div className="h-10 md:h-12 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
+                 <TypingAnimation
+                    words={creativeRoles}
+                    className="text-2xl text-cyan-400 font-semibold"
+                 />
+              </div>
+
               <p className="max-w-[700px] mx-auto text-gray-300 md:text-xl animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-400">
                 I build modern, interactive, and responsive web applications.
                 Let's turn your ideas into reality.

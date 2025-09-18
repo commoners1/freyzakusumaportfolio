@@ -19,6 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 import { ContactFormSchema } from "@/lib/types";
 import { sendContactMessage } from "@/lib/actions";
 import { Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function ContactForm() {
   const { toast } = useToast();
@@ -59,16 +60,16 @@ export function ContactForm() {
     <Card className="transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>
       <CardContent className="p-6">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
+                <FormItem className="relative">
                   <FormControl>
-                    <Input placeholder="Your Name" {...field} className="bg-input/50" />
+                    <Input placeholder=" " {...field} className="peer" />
                   </FormControl>
+                  <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}
@@ -77,11 +78,11 @@ export function ContactForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
+                <FormItem className="relative">
                   <FormControl>
-                    <Input placeholder="your.email@example.com" {...field} className="bg-input/50" />
+                    <Input placeholder=" " {...field} className="peer" />
                   </FormControl>
+                   <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}
@@ -90,15 +91,15 @@ export function ContactForm() {
               control={form.control}
               name="message"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message</FormLabel>
+                <FormItem className="relative">
                   <FormControl>
                     <Textarea
-                      placeholder="Tell me about your project or just say hi!"
-                      className="min-h-[120px] bg-input/50"
+                      placeholder=" "
+                      className="min-h-[120px] peer"
                       {...field}
                     />
                   </FormControl>
+                  <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}

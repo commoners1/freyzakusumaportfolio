@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Code, Menu, Mountain } from "lucide-react";
+import { Code, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -31,7 +31,7 @@ export function Header() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+          ? "border-b border-primary/20 bg-background/80 backdrop-blur-lg"
           : "bg-transparent"
       )}
     >
@@ -54,12 +54,12 @@ export function Header() {
         </nav>
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="ml-auto md:hidden">
+            <Button variant="outline" size="icon" className="ml-auto md:hidden border-primary/50 text-primary hover:bg-primary/10 hover:text-primary">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left">
+          <SheetContent side="left" className="bg-background border-r-primary/20">
             <nav className="grid gap-6 text-lg font-medium pt-8">
               <Link
                 href="#"

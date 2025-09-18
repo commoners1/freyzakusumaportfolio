@@ -66,7 +66,7 @@ export function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="text-left">Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Your Name" {...field} />
                   </FormControl>
@@ -79,7 +79,7 @@ export function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-left">Email</FormLabel>
                   <FormControl>
                     <Input placeholder="your.email@example.com" {...field} />
                   </FormControl>
@@ -92,7 +92,7 @@ export function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel className="text-left">Message</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Tell me about your project or just say hi!"
@@ -104,7 +104,7 @@ export function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full text-lg py-6 rounded-full transition-transform duration-300 hover:scale-105" disabled={form.formState.isSubmitting}>
+            <Button type="submit" className="w-full py-6 rounded-full transition-transform duration-300 hover:scale-105" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
-import { Code, Menu } from "lucide-react";
+import { Code, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -54,8 +54,9 @@ export function Header() {
         </nav>
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden text-primary hover:bg-primary/10 hover:text-primary">
-              <Menu className="h-5 w-5" />
+            <Button variant="ghost" size="icon" className="md:hidden text-primary hover:bg-primary/10 hover:text-primary relative h-8 w-8">
+              <Menu className={cn("h-5 w-5 transition-all", mobileMenuOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100')} />
+              <X className={cn("h-5 w-5 absolute transition-all", mobileMenuOpen ? 'rotate-0 scale-100' : '-rotate-90 scale-0')} />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>

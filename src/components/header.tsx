@@ -70,17 +70,17 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-primary hover:bg-primary/10 hover:text-primary relative h-10 w-10"
+                className="text-primary hover:bg-primary/10 hover:text-primary relative h-12 w-12"
               >
                 <Menu
                   className={cn(
-                    "h-7 w-7 transition-all",
+                    "h-9 w-9 transition-all",
                     mobileMenuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
                   )}
                 />
                 <X
                   className={cn(
-                    "h-7 w-7 absolute transition-all",
+                    "h-9 w-9 absolute transition-all",
                     mobileMenuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
                   )}
                 />

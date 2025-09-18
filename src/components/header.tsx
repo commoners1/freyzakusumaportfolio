@@ -29,7 +29,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "sticky top-0 z-50 w-full transition-all duration-300 py-4",
         scrolled
           ? "border-b border-primary/20 bg-background/80 backdrop-blur-lg shadow-[0_4px_10px_-5px_hsl(var(--primary))]"
           : "bg-transparent"
@@ -40,7 +40,7 @@ export function Header() {
           <Code className="h-8 w-8 text-primary" />
           <span className="font-bold text-2xl">Freyza Kusuma</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-xl font-medium ml-auto">
+        <nav className="hidden md:flex items-center gap-6 text-[1.05rem] font-medium ml-auto">
           {navLinks.map((link) => (
             <Link
               key={link.href}

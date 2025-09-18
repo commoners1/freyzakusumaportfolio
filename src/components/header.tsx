@@ -61,31 +61,25 @@ export function Header() {
                 <span className="sr-only">Toggle navigation menu</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="bg-background border-r-primary/20 pt-20">
+            <SheetContent side="top" className="bg-background/95 backdrop-blur-lg border-b-primary/20 p-0">
                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
                 <SheetDescription className="sr-only">A list of links to navigate the website.</SheetDescription>
-                <nav className="grid gap-6 text-xl font-medium">
-                <Link
-                    href="#"
-                    className="flex items-center gap-2 text-lg font-semibold mb-4"
-                    prefetch={false}
-                    onClick={() => setMobileMenuOpen(false)}
-                >
-                    <Code className="h-6 w-6 text-primary" />
-                    <span className="sr-only">Freyza Kusuma</span>
-                </Link>
-                {navLinks.map((link) => (
-                    <Link
-                    key={link.href}
-                    href={link.href}
-                    className="hover:text-primary"
-                    prefetch={false}
-                    onClick={() => setMobileMenuOpen(false)}
-                    >
-                    {link.label}
-                    </Link>
-                ))}
-                </nav>
+                <div className="pt-24 pb-12">
+                  <nav className="grid gap-6 text-center text-2xl font-medium">
+                  {navLinks.map((link, index) => (
+                      <Link
+                      key={link.href}
+                      href={link.href}
+                      className={cn("hover:text-primary transition-all duration-300", mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4')}
+                      prefetch={false}
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{transitionDelay: `${index * 100 + 300}ms`}}
+                      >
+                      {link.label}
+                      </Link>
+                  ))}
+                  </nav>
+                </div>
             </SheetContent>
             </Sheet>
         </div>

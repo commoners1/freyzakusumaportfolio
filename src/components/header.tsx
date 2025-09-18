@@ -14,6 +14,7 @@ import {
 const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#skills", label: "Skills" },
+  { href: "#experience", label: "Experience" },
   { href: "#portfolio", label: "Portfolio" },
   { href: "#contact", label: "Contact" },
 ];

@@ -52,41 +52,43 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden text-primary hover:bg-primary/10 hover:text-primary relative h-8 w-8">
-              <Menu className={cn("h-5 w-5 transition-all", mobileMenuOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100')} />
-              <X className={cn("h-5 w-5 absolute transition-all", mobileMenuOpen ? 'rotate-0 scale-100' : '-rotate-90 scale-0')} />
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="bg-background border-r-primary/20">
-            <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
-            <SheetDescription className="sr-only">A list of links to navigate the website.</SheetDescription>
-            <nav className="grid gap-6 text-xl font-medium pt-8">
-              <Link
-                href="#"
-                className="flex items-center gap-2 text-lg font-semibold mb-4"
-                prefetch={false}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Code className="h-6 w-6 text-primary" />
-                <span className="sr-only">Freyza Kusuma</span>
-              </Link>
-              {navLinks.map((link) => (
+        <div className="md:hidden">
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-primary hover:bg-primary/10 hover:text-primary relative h-8 w-8">
+                <Menu className={cn("h-5 w-5 transition-all", mobileMenuOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100')} />
+                <X className={cn("h-5 w-5 absolute transition-all", mobileMenuOpen ? 'rotate-0 scale-100' : '-rotate-90 scale-0')} />
+                <span className="sr-only">Toggle navigation menu</span>
+                </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="bg-background border-r-primary/20 pt-20">
+                <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+                <SheetDescription className="sr-only">A list of links to navigate the website.</SheetDescription>
+                <nav className="grid gap-6 text-xl font-medium">
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className="hover:text-primary"
-                  prefetch={false}
-                  onClick={() => setMobileMenuOpen(false)}
+                    href="#"
+                    className="flex items-center gap-2 text-lg font-semibold mb-4"
+                    prefetch={false}
+                    onClick={() => setMobileMenuOpen(false)}
                 >
-                  {link.label}
+                    <Code className="h-6 w-6 text-primary" />
+                    <span className="sr-only">Freyza Kusuma</span>
                 </Link>
-              ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
+                {navLinks.map((link) => (
+                    <Link
+                    key={link.href}
+                    href={link.href}
+                    className="hover:text-primary"
+                    prefetch={false}
+                    onClick={() => setMobileMenuOpen(false)}
+                    >
+                    {link.label}
+                    </Link>
+                ))}
+                </nav>
+            </SheetContent>
+            </Sheet>
+        </div>
       </div>
     </header>
   );

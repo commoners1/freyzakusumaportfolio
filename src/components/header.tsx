@@ -54,7 +54,7 @@ export function Header() {
         </nav>
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="md:hidden border-primary/50 text-primary hover:bg-primary/10 hover:text-primary">
+            <Button variant="ghost" size="icon" className="md:hidden text-primary hover:bg-primary/10 hover:text-primary">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>

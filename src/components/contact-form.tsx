@@ -60,16 +60,16 @@ export function ContactForm() {
     <Card className="transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>
       <CardContent className="p-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="relative">
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder=" " {...field} className="peer" />
+                    <Input placeholder="Your Name" {...field} />
                   </FormControl>
-                  <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-1/2 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1/2 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Name</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}
@@ -78,11 +78,11 @@ export function ContactForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="relative">
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder=" " {...field} className="peer" />
+                    <Input placeholder="your.email@example.com" {...field} />
                   </FormControl>
-                   <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-1/2 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1/2 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Email</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}
@@ -91,15 +91,15 @@ export function ContactForm() {
               control={form.control}
               name="message"
               render={({ field }) => (
-                <FormItem className="relative">
+                <FormItem>
+                  <FormLabel>Message</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder=" "
-                      className="min-h-[120px] peer"
+                      placeholder="Tell me about your project or just say hi!"
+                      className="min-h-[120px]"
                       {...field}
                     />
                   </FormControl>
-                  <FormLabel className="absolute text-base text-muted-foreground duration-300 transform -translate-y-7 scale-75 top-5 z-10 origin-[0] left-3 peer-focus:left-3 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:top-5 peer-focus:top-5 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:bg-card peer-placeholder-shown:bg-transparent px-1">Message</FormLabel>
                   <FormMessage />
                 </FormItem>
               )}

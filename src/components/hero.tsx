@@ -50,10 +50,10 @@ export function Hero() {
               </p>
             </div>
             <div className="flex flex-col gap-4 min-[400px]:flex-row justify-center pt-4 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
-              <Button asChild size="lg" className="text-lg font-semibold py-6 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-cyan-400/40 shadow-lg bg-cyan-400 text-slate-900">
+              <Button asChild size="lg" className="text-base md:text-lg font-semibold py-6 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-cyan-400/40 shadow-lg bg-cyan-400 text-slate-900">
                 <Link href="#portfolio">View My Work</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-lg font-semibold py-6 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10 hover:text-cyan-300 border-cyan-400 text-cyan-400 shadow-[0_0_15px_rgba(73,214,219,0.4)] hover:shadow-[0_0_25px_rgba(73,214,219,0.6)]">
+              <Button asChild variant="outline" size="lg" className="text-base md:text-lg font-semibold py-6 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10 hover:text-cyan-300 border-cyan-400 text-cyan-400 shadow-[0_0_15px_rgba(73,214,219,0.4)] hover:shadow-[0_0_25px_rgba(73,214,219,0.6)]">
                 <Link href="#contact">Get in Touch</Link>
               </Button>
             </div>

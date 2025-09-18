@@ -35,10 +35,10 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container flex h-16 items-center mx-auto">
+      <div className="container flex h-20 items-center mx-auto">
         <Link href="#" className="mr-6 flex items-center gap-2" prefetch={false}>
-          <Code className="h-7 w-7 text-primary" />
-          <span className="font-bold text-xl">Freyza Kusuma</span>
+          <Code className="h-8 w-8 text-primary" />
+          <span className="font-bold text-2xl">Freyza Kusuma</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-xl font-medium ml-auto">
           {navLinks.map((link) => (

@@ -18,6 +18,39 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
+const CustomMenuIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <line x1="4" y1="12" x2="20" y2="12" />
+    <line x1="4" y1="6" x2="20" y2="6" />
+    <line x1="4" y1="18" x2="20" y2="18" />
+  </svg>
+);
+
+const CustomXIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -72,15 +105,15 @@ export function Header() {
                 size="icon"
                 className="text-primary hover:bg-primary/10 hover:text-primary relative h-12 w-12"
               >
-                <Menu
+                <CustomMenuIcon
                   className={cn(
-                    "h-9 w-9 transition-all",
+                    "h-8 w-8 transition-all",
                     mobileMenuOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"
                   )}
                 />
-                <X
+                <CustomXIcon
                   className={cn(
-                    "h-9 w-9 absolute transition-all",
+                    "h-8 w-8 absolute transition-all",
                     mobileMenuOpen ? "rotate-0 scale-100" : "-rotate-90 scale-0"
                   )}
                 />

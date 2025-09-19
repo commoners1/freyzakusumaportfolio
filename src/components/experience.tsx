@@ -2,6 +2,12 @@ import { Briefcase } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const experienceData = [
+    {
+    title: "Web Developer",
+    company: "NOTCH",
+    date: "Nov 2023 - Present",
+    description: "Bolstering internal and external company websites; Combating issues and suspicious behavior on websites, sustaining server's websites; Monitoring and updating website's flow in light of the alteration of payment gateway regulation; Debugging and optimizing code; Aiding websites and data migration; Governing databases, including query simplification and optimization.",
+  },
   {
     title: "Senior IT Developer",
     company: "Computer Network Services Group",

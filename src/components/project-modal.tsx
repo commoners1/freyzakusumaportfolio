@@ -98,10 +98,10 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
               ))}
             </div>
             <div className="flex gap-4 pt-4">
-              <Button asChild className="transition-transform duration-300 hover:scale-105">
+              <Button asChild className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40">
                 <Link href="#">Live Demo <ArrowUpRight /></Link>
               </Button>
-              <Button asChild variant="secondary" className="transition-transform duration-300 hover:scale-105">
+              <Button asChild variant="secondary" className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/20">
                 <Link href="#">View Code</Link>
               </Button>
             </div>

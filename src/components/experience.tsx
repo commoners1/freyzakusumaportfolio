@@ -53,8 +53,8 @@ export function Experience() {
               className="relative mb-8 md:mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000"
               style={{animationDelay: `${index * 150}ms`}}
             >
-              <div className="flex">
-                  <div className="absolute left-6 top-0 -translate-x-1/2 md:left-1/2 z-10">
+              <div className="flex items-start">
+                  <div className="absolute left-6 top-1 -translate-x-1/2 md:left-1/2 md:top-0 z-10">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
                       <Briefcase className="h-6 w-6" />
                     </div>

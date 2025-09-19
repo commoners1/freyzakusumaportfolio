@@ -1,15 +1,15 @@
 
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
+import { cn } from "@/lib/utils";
 
 type Project = {
   id: string;
@@ -26,32 +26,59 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, projectImages, isOpen, onClose }: ProjectModalProps) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (projectImages && projectImages.imageUrls.length > 0) {
+      setSelectedImage(projectImages.imageUrls[0]);
+    } else {
+      setSelectedImage(null);
+    }
+  }, [projectImages, isOpen]);
+
   if (!project) return null;
+
+  const getHintForUrl = (url: string) => {
+    if (!projectImages) return undefined;
+    const index = projectImages.imageUrls.findIndex(imgUrl => imgUrl === url);
+    return projectImages.imageHints[index];
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-4xl p-0">
         <div className="grid md:grid-cols-2">
-          <div className="relative flex items-center justify-center p-8 bg-muted/50">
-            {projectImages ? (
-              <Carousel className="w-full max-w-md">
-                <CarouselContent>
-                  {projectImages.imageUrls.map((url, i) => (
-                    <CarouselItem key={i}>
-                      <Image
-                        src={url}
-                        alt={`${project.title} - view ${i + 1}`}
-                        width={600}
-                        height={400}
-                        className="w-full aspect-video object-cover rounded-lg shadow-lg"
-                        data-ai-hint={projectImages.imageHints[i]}
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
-              </Carousel>
+          <div className="flex flex-col items-center justify-center p-8 bg-muted/50">
+            {selectedImage ? (
+                <div className="flex flex-col gap-4 w-full max-w-md">
+                    <div className="relative w-full aspect-video rounded-lg shadow-lg overflow-hidden">
+                        <Image
+                            src={selectedImage}
+                            alt={`${project.title} - main view`}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={getHintForUrl(selectedImage)}
+                        />
+                    </div>
+                    {projectImages && projectImages.imageUrls.length > 1 && (
+                        <div className="flex gap-2 justify-center">
+                            {projectImages.imageUrls.map((url, i) => (
+                                <button key={i} onClick={() => setSelectedImage(url)} className={cn("relative w-20 h-14 rounded-md overflow-hidden transition-all duration-200 ring-offset-background ring-offset-2 focus:outline-none focus:ring-2 focus:ring-ring", {
+                                    "ring-2 ring-primary": selectedImage === url,
+                                    "hover:opacity-80": selectedImage !== url
+                                })}>
+                                    <Image
+                                        src={url}
+                                        alt={`${project.title} - thumbnail ${i + 1}`}
+                                        fill
+                                        className="object-cover"
+                                        data-ai-hint={projectImages.imageHints[i]}
+                                    />
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
             ) : (
                 <div className="w-full aspect-video bg-muted rounded-lg flex items-center justify-center">
                     <p>No images available</p>

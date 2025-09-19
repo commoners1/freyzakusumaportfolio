@@ -53,26 +53,38 @@ export function Experience() {
               className="relative mb-8 md:mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000"
               style={{animationDelay: `${index * 150}ms`}}
             >
-              <div className="flex items-start">
+              <div className="md:flex md:items-start md:justify-center">
                   <div className="absolute left-6 top-1 -translate-x-1/2 md:left-1/2 md:top-0 z-10">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
                       <Briefcase className="h-6 w-6" />
                     </div>
                   </div>
-                 <div
-                  className={`ml-16 md:ml-0 w-full md:w-1/2 ${
-                    index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
-                  } flex flex-col ${index % 2 === 0 ? 'md:items-end' : 'md:items-start'}`}
-                >
-                  <div className={`bg-card/50 border-border/50 p-6 rounded-lg shadow-md max-w-md w-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1 md:-mt-1 ${index % 2 !== 0 ? 'md:ml-auto' : 'md:mr-auto'}`}>
-                    <h3 className="text-xl font-bold font-headline">{item.title}</h3>
-                    <p className="text-primary font-semibold text-base mb-1">{item.company}</p>
-                    <Badge variant="secondary" className="mb-3">{item.date}</Badge>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </div>
-                </div>
-                {/* Empty div for spacing on desktop */}
-                 <div className={`hidden md:block w-1/2 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'}`}></div>
+                
+                {index % 2 === 0 ? (
+                  <>
+                    <div className="ml-16 md:ml-0 md:w-1/2 md:pr-8 flex flex-col items-start md:items-end">
+                       <div className="bg-card/50 border-border/50 p-6 rounded-lg shadow-md max-w-md w-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1 md:text-right md:-mt-1">
+                        <h3 className="text-xl font-bold font-headline">{item.title}</h3>
+                        <p className="text-primary font-semibold text-base mb-1">{item.company}</p>
+                        <Badge variant="secondary" className="mb-3">{item.date}</Badge>
+                        <p className="text-muted-foreground">{item.description}</p>
+                      </div>
+                    </div>
+                    <div className="hidden md:block md:w-1/2"></div>
+                  </>
+                ) : (
+                  <>
+                    <div className="hidden md:block md:w-1/2"></div>
+                    <div className="ml-16 md:ml-0 md:w-1/2 md:pl-8 flex flex-col items-start">
+                      <div className="bg-card/50 border-border/50 p-6 rounded-lg shadow-md max-w-md w-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1 md:text-left md:-mt-1">
+                        <h3 className="text-xl font-bold font-headline">{item.title}</h3>
+                        <p className="text-primary font-semibold text-base mb-1">{item.company}</p>
+                        <Badge variant="secondary" className="mb-3">{item.date}</Badge>
+                        <p className="text-muted-foreground">{item.description}</p>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           ))}

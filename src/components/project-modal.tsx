@@ -114,7 +114,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
             <div className="flex flex-col space-y-6 justify-center text-center md:text-left">
               <DialogHeader className="text-center md:text-left">
                 <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
-                <DialogDescription className="text-lg/relaxed text-muted-foreground pt-2">
+                <DialogDescription className="text-base/relaxed md:text-lg/relaxed text-muted-foreground pt-2">
                   {project.description}
                 </DialogDescription>
               </DialogHeader>

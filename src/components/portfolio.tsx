@@ -46,10 +46,6 @@ export function Portfolio() {
   const getImage = (id: string) => {
     return PlaceHolderImages.find((img) => img.id === id);
   };
-  
-  const autoplayPlugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
-  );
 
   return (
     <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32 bg-background/80 backdrop-blur-md scroll-mt-16">
@@ -65,6 +61,9 @@ export function Portfolio() {
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:gap-12 pt-12">
           {projects.map((project, index) => {
             const projectImage = getImage(project.id);
+            const autoplayPlugin = React.useRef(
+              Autoplay({ delay: 3000 + (index * 500), stopOnInteraction: true, stopOnMouseEnter: true })
+            );
             return (
               <div key={project.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000 group/card" style={{animationDelay: `${index * 150}ms`, perspective: '1000px'}}>
                 <Card className="overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover/card:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>

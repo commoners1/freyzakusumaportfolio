@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -66,11 +65,15 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
           hideCloseButton
           className="max-w-6xl w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex flex-col p-0 rounded-lg"
         >
-          <DialogClose className="absolute right-2 top-2 z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-            <X className="h-5 w-5" />
-            <span className="sr-only">Close</span>
-          </DialogClose>
-          <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto p-4 pt-8 md:p-8">
+           <DialogClose asChild>
+            <button
+                className="absolute right-2 top-2 z-50 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+              >
+              <X className="h-5 w-5" />
+              <span className="sr-only">Close</span>
+            </button>
+           </DialogClose>
+           <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto p-4 pt-8 md:p-8">
             <div className="flex flex-col items-center justify-start gap-4">
               {selectedImage ? (
                   <div className="flex flex-col gap-4 w-full">
@@ -126,7 +129,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                  <Button asChild className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40 shadow-primary/30">
                   <Link href="#">Live Demo <ArrowUpRight /></Link>
                 </Button>
-                <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary shadow-[0_0_15px_-2px_hsl(var(--primary))] hover:shadow-[0_0_25px_-5px_hsl(var(--primary))]">
+                <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">
                   <Link href="#">View Code</Link>
                 </Button>
               </div>

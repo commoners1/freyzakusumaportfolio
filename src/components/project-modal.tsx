@@ -110,7 +110,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
               </DialogHeader>
               <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                 {project.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="transition-all duration-300 bg-primary/10 text-primary hover:bg-primary/20 shadow-[0_0_10px_-2px_hsl(var(--primary))] hover:shadow-[0_0_15px_-3px_hsl(var(--primary))]">
+                  <Badge key={tag} variant="secondary" className="transition-all duration-300 bg-primary/10 text-primary hover:bg-primary/20 shadow-[0_0_10px_-2px_hsl(var(--primary))] hover:shadow-[0_0_15px_-3px_hsl(var(--primary))]">
                     {tag}
                   </Badge>
                 ))}

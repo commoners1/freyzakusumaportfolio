@@ -113,7 +113,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                <Button asChild className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40 shadow-primary/30">
                 <Link href="#">Live Demo <ArrowUpRight /></Link>
               </Button>
-              <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary shadow-[0_0_15px_-2px_rgba(var(--primary-hsl),0.4)] hover:shadow-[0_0_25px_-5px_rgba(var(--primary-hsl),0.6)]">
+              <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary shadow-[0_0_15px_-2px_hsl(var(--primary))] hover:shadow-[0_0_25px_-5px_hsl(var(--primary))]">
                 <Link href="#">View Code</Link>
               </Button>
             </div>

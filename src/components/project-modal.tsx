@@ -67,7 +67,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
         >
           <DialogClose asChild>
             <button
-                className="absolute right-4 top-4 z-50 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
+                className="absolute right-4 top-4 z-50 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none"
               >
               <X className="h-5 w-5" />
               <span className="sr-only">Close</span>
@@ -144,7 +144,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
               onClick={handleCloseFullscreen}
             >
                 <button
-                    className="absolute top-4 right-4 text-white z-50 rounded-full bg-black/50 p-2 hover:bg-black/75 transition-colors"
+                    className="absolute top-4 right-4 text-white z-50 rounded-full bg-black/50 p-2 hover:bg-black/75 transition-colors focus:outline-none"
                     onClick={handleCloseFullscreen}
                 >
                     <X className="h-6 w-6" />

@@ -62,7 +62,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
           onClose();
         }
       }}>
-        <DialogContent className="sm:max-w-6xl flex flex-col max-h-[90vh] p-4">
+        <DialogContent className="max-w-6xl w-[calc(100vw-2rem)] flex flex-col max-h-[90vh] p-4 rounded-lg">
           <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto pr-2">
             <div className="flex flex-col items-start justify-start gap-4">
               {selectedImage ? (
@@ -101,8 +101,8 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                   </div>
               )}
             </div>
-            <div className="flex flex-col justify-center space-y-6">
-              <DialogHeader className="text-center md:text-left">
+            <div className="flex flex-col space-y-6 justify-center text-center md:text-left">
+              <DialogHeader>
                 <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
                 <DialogDescription className="text-lg text-muted-foreground pt-2">
                   {project.description}

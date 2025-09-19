@@ -46,11 +46,11 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-4xl p-0">
-        <div className="grid md:grid-cols-2">
-          <div className="flex flex-col items-center justify-center p-8 bg-muted/50">
+      <DialogContent className="sm:max-w-6xl p-0">
+        <div className="grid md:grid-cols-5">
+          <div className="md:col-span-3 flex flex-col items-center justify-center p-8 bg-muted/50">
             {selectedImage ? (
-                <div className="flex flex-col gap-4 w-full max-w-md">
+                <div className="flex flex-col gap-4 w-full">
                     <div className="relative w-full aspect-video rounded-lg shadow-lg overflow-hidden">
                         <Image
                             src={selectedImage}
@@ -63,7 +63,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                     {projectImages && projectImages.imageUrls.length > 1 && (
                         <div className="flex gap-2 justify-center">
                             {projectImages.imageUrls.map((url, i) => (
-                                <button key={i} onClick={() => setSelectedImage(url)} className={cn("relative w-20 h-14 rounded-md overflow-hidden transition-all duration-200 ring-offset-background ring-offset-2 focus:outline-none focus:ring-2 focus:ring-ring", {
+                                <button key={i} onClick={() => setSelectedImage(url)} className={cn("relative w-24 h-16 rounded-md overflow-hidden transition-all duration-200 ring-offset-background ring-offset-2 focus:outline-none focus:ring-2 focus:ring-ring", {
                                     "ring-2 ring-primary": selectedImage === url,
                                     "hover:opacity-80": selectedImage !== url
                                 })}>
@@ -85,7 +85,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                 </div>
             )}
           </div>
-          <div className="flex flex-col justify-center p-8 space-y-6">
+          <div className="md:col-span-2 flex flex-col justify-center p-8 space-y-6">
             <DialogHeader>
               <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
               <DialogDescription className="text-lg text-muted-foreground pt-2">

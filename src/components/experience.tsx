@@ -45,30 +45,32 @@ export function Experience() {
             </p>
           </div>
         </div>
-        <div className="relative mt-12">
-          <div className="absolute left-1/2 -ml-[2px] h-full w-1 bg-border/50"></div>
+        <div className="relative mt-12 md:pl-0 pl-6">
+          <div className="absolute left-6 md:left-1/2 -ml-[2px] h-full w-1 bg-border/50"></div>
           {experienceData.map((item, index) => (
             <div
               key={index}
-              className="relative mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000"
+              className="relative mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000 md:flex"
               style={{animationDelay: `${index * 150}ms`}}
             >
-              <div className="flex items-center">
-                <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg absolute left-1/2 -translate-x-1/2">
+              <div className="md:w-1/2 md:pr-8 md:text-right flex md:justify-end">
+                 <div
+                  className={`z-10 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg absolute left-0 -translate-x-1/2 md:left-auto md:right-0 md:translate-x-1/2`}
+                >
                   <Briefcase className="h-6 w-6" />
                 </div>
-                <div
-                  className={`w-full ${
-                    index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
-                  } flex flex-col ${index % 2 === 0 ? 'md:items-end' : 'md:items-start'} items-center text-center md:w-1/2 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}
-                >
+              </div>
+              <div
+                className={`w-full md:w-1/2 md:pl-8 ${
+                  index % 2 === 0 ? "md:pr-8 md:text-right md:flex-row-reverse" : "md:pl-8 md:text-left"
+                } flex flex-col ${index % 2 === 0 ? 'md:items-end' : 'md:items-start'} items-start text-left`}
+              >
                   <div className="bg-card/50 border-border/50 p-6 rounded-lg shadow-md max-w-md w-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1">
                     <h3 className="text-xl font-bold font-headline">{item.title}</h3>
                     <p className="text-primary font-semibold text-base mb-1">{item.company}</p>
                     <Badge variant="secondary" className="mb-3">{item.date}</Badge>
                     <p className="text-muted-foreground">{item.description}</p>
                   </div>
-                </div>
               </div>
             </div>
           ))}

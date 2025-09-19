@@ -102,20 +102,20 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
               )}
             </div>
             <div className="flex flex-col justify-center p-8 space-y-6">
-              <DialogHeader>
+              <DialogHeader className="text-center md:text-left">
                 <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
                 <DialogDescription className="text-lg text-muted-foreground pt-2">
                   {project.description}
                 </DialogDescription>
               </DialogHeader>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                 {project.tags.map((tag) => (
                     <Badge key={tag} variant="secondary" className="transition-all duration-300 bg-primary/10 text-primary hover:bg-primary/20 shadow-[0_0_10px_-2px_hsl(var(--primary))] hover:shadow-[0_0_15px_-3px_hsl(var(--primary))]">
                     {tag}
                   </Badge>
                 ))}
               </div>
-              <div className="flex gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
                  <Button asChild className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40 shadow-primary/30">
                   <Link href="#">Live Demo <ArrowUpRight /></Link>
                 </Button>

@@ -63,7 +63,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
       }}>
         <DialogContent 
           hideCloseButton
-          className="max-w-6xl w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex flex-col p-0 rounded-lg"
+          className="max-w-6xl w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex flex-col p-4 md:p-6 rounded-lg"
         >
            <DialogClose asChild>
             <button
@@ -73,7 +73,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
               <span className="sr-only">Close</span>
             </button>
            </DialogClose>
-           <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto p-4 pt-8 md:p-8">
+           <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto pt-4">
             <div className="flex flex-col items-center justify-start gap-4">
               {selectedImage ? (
                   <div className="flex flex-col gap-4 w-full">
@@ -125,8 +125,8 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                   </Badge>
                 ))}
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-                 <Button asChild className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40 shadow-primary/30">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start px-4 sm:px-0">
+                 <Button asChild className="transition-transform duration-300 hover:scale-105">
                   <Link href="#">Live Demo <ArrowUpRight /></Link>
                 </Button>
                 <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary">

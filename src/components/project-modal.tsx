@@ -63,8 +63,8 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
         }
       }}>
         <DialogContent className="sm:max-w-6xl flex flex-col max-h-[90vh] p-4 sm:p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto">
-            <div className="flex flex-col items-center justify-start gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto pr-2">
+            <div className="flex flex-col items-start justify-start gap-4">
               {selectedImage ? (
                   <div className="flex flex-col gap-4 w-full">
                       <div className="relative w-full aspect-video rounded-lg shadow-lg overflow-hidden cursor-zoom-in" onClick={() => handleImageClick(selectedImage)}>

@@ -2,27 +2,39 @@
   "placeholderImages": [
     {
       "id": "project-1",
-      "description": "Screenshot of a modern e-commerce dashboard.",
-      "imageUrl": "https://picsum.photos/seed/project1/600/400",
-      "imageHint": "dashboard analytics"
+      "description": "Screenshots of a modern e-commerce dashboard.",
+      "imageUrls": [
+        "https://picsum.photos/seed/project1_desktop/600/400",
+        "https://picsum.photos/seed/project1_mobile/400/600"
+      ],
+      "imageHints": ["dashboard analytics", "dashboard mobile"]
     },
     {
       "id": "project-2",
       "description": "A mobile application for booking travel.",
-      "imageUrl": "https://picsum.photos/seed/project2/600/400",
-      "imageHint": "travel app"
+      "imageUrls": [
+        "https://picsum.photos/seed/project2_flights/600/400",
+        "https://picsum.photos/seed/project2_hotels/600/400"
+      ],
+      "imageHints": ["travel app", "hotel booking"]
     },
     {
       "id": "project-3",
       "description": "A landing page for a SaaS product.",
-      "imageUrl": "https://picsum.photos/seed/project3/600/400",
-      "imageHint": "website landing"
+      "imageUrls": [
+        "https://picsum.photos/seed/project3_hero/600/400",
+        "https://picsum.photos/seed/project3_features/600/400"
+      ],
+      "imageHints": ["website landing", "product features"]
     },
     {
       "id": "project-4",
       "description": "A creative blog with a unique layout.",
-      "imageUrl": "https://picsum.photos/seed/project4/600/400",
-      "imageHint": "creative blog"
+      "imageUrls": [
+        "https://picsum.photos/seed/project4_home/600/400",
+        "https://picsum.photos/seed/project4_post/600/400"
+      ],
+      "imageHints": ["creative blog", "article page"]
     }
   ]
 }

@@ -5,6 +5,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowUpRight } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const projects = [
   {
@@ -53,21 +60,31 @@ export function Portfolio() {
           {projects.map((project, index) => {
             const projectImage = getImage(project.id);
             return (
-              <div key={project.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000 group" style={{animationDelay: `${index * 150}ms`, perspective: '1000px'}}>
-                <Card className="overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>
-                  <div className="relative">
-                    {projectImage && (
-                      <Image
-                        src={projectImage.imageUrl}
-                        alt={project.title}
-                        width={600}
-                        height={400}
-                        className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105"
-                        data-ai-hint={projectImage.imageHint}
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  </div>
+              <div key={project.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000 group/card" style={{animationDelay: `${index * 150}ms`, perspective: '1000px'}}>
+                <Card className="overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover/card:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>
+                  {projectImage && (
+                    <Carousel className="relative w-full group/carousel">
+                      <CarouselContent>
+                        {projectImage.imageUrls.map((url, i) => (
+                           <CarouselItem key={i}>
+                             <div className="relative">
+                               <Image
+                                 src={url}
+                                 alt={`${project.title} - view ${i + 1}`}
+                                 width={600}
+                                 height={400}
+                                 className="w-full h-60 object-cover transition-transform duration-500 group-hover/card:scale-105"
+                                 data-ai-hint={projectImage.imageHints[i]}
+                               />
+                               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                             </div>
+                           </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                       <CarouselPrevious className="left-4 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300" />
+                      <CarouselNext className="right-4 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300" />
+                    </Carousel>
+                  )}
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
                     <CardDescription>{project.description}</CardDescription>

@@ -46,11 +46,11 @@ export function Experience() {
           </div>
         </div>
         <div className="relative mt-12">
-          <div className="absolute left-6 top-0 h-full w-1 -translate-x-1/2 bg-border/50 md:left-1/2"></div>
+          <div className="absolute left-6 top-0 h-full w-0.5 -translate-x-1/2 bg-border/50 md:left-1/2"></div>
           {experienceData.map((item, index) => (
              <div
               key={index}
-              className="relative mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000"
+              className="relative mb-8 md:mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000"
               style={{animationDelay: `${index * 150}ms`}}
             >
               <div className="md:flex items-start">
@@ -60,7 +60,7 @@ export function Experience() {
                     </div>
                   </div>
                  <div
-                  className={`ml-12 md:ml-0 w-full md:w-1/2 ${
+                  className={`ml-16 md:ml-0 w-full md:w-1/2 ${
                     index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
                   } flex flex-col ${index % 2 === 0 ? 'md:items-end' : 'md:items-start'}`}
                 >

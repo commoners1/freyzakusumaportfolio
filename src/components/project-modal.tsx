@@ -47,8 +47,8 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-6xl p-0">
-        <div className="grid md:grid-cols-5">
-          <div className="md:col-span-3 flex flex-col items-center justify-center p-8 bg-muted/50">
+        <div className="grid md:grid-cols-3">
+          <div className="md:col-span-2 flex flex-col items-center justify-center p-8 bg-muted/50">
             {selectedImage ? (
                 <div className="flex flex-col gap-4 w-full">
                     <div className="relative w-full aspect-video rounded-lg shadow-lg overflow-hidden">
@@ -85,7 +85,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                 </div>
             )}
           </div>
-          <div className="md:col-span-2 flex flex-col justify-center p-8 space-y-6">
+          <div className="md:col-span-1 flex flex-col justify-center p-8 space-y-6">
             <DialogHeader>
               <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
               <DialogDescription className="text-lg text-muted-foreground pt-2">
@@ -101,7 +101,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
               <Button asChild className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40 shadow-primary/30">
                 <Link href="#">Live Demo <ArrowUpRight /></Link>
               </Button>
-              <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary shadow-[0_0_15px_rgba(var(--primary),0.4)] hover:shadow-[0_0_25px_rgba(var(--primary),0.6)]">
+              <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary shadow-[0_0_15px_-2px_rgba(var(--primary-hsl),0.4)] hover:shadow-[0_0_25px_-5px_rgba(var(--primary-hsl),0.6)]">
                 <Link href="#">View Code</Link>
               </Button>
             </div>

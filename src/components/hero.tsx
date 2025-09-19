@@ -29,17 +29,12 @@ export function Hero() {
                   style={{ animation: `pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite` }}
                 ></div>
                 <Avatar className="relative h-44 w-44 md:h-52 md:w-52 border-4 border-cyan-400/50 shadow-2xl shadow-cyan-500/20">
-                    <AvatarImage asChild>
-                      <Image 
-                        src="https://picsum.photos/seed/avatar/400/400"
-                        alt="Freyza Kusuma"
-                        width={400}
-                        height={400}
-                        className="aspect-square h-full w-full"
-                        priority
-                        data-ai-hint="woman portrait"
-                      />
-                    </AvatarImage>
+                    <AvatarImage 
+                      src="https://picsum.photos/seed/avatar/400/400"
+                      alt="Freyza Kusuma"
+                      className="aspect-square h-full w-full"
+                      data-ai-hint="woman portrait"
+                    />
                     <AvatarFallback>FK</AvatarFallback>
                 </Avatar>
               </div>

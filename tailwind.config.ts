@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        '2/3': '2fr 1fr',
+      },
       fontFamily: {
         body: ["var(--font-body)", 'sans-serif'],
         headline: ["var(--font-headline)", 'sans-serif'],

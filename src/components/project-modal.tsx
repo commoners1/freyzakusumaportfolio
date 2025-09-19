@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, X } from "lucide-react";
@@ -57,15 +57,14 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
   }
 
   return (
-    <>
       <Dialog open={isOpen} onOpenChange={(open) => {
         if (!open) {
           onClose();
         }
       }}>
         <DialogContent className="sm:max-w-6xl p-0">
-          <div className="grid md:grid-cols-5">
-            <div className="md:col-span-3 flex flex-col items-center justify-center p-8 bg-muted/50">
+          <div className="grid md:grid-cols-2/3">
+            <div className="md:col-span-2 flex flex-col items-center justify-center p-8 bg-muted/50">
               {selectedImage ? (
                   <div className="flex flex-col gap-4 w-full">
                       <div className="relative w-full aspect-video rounded-lg shadow-lg overflow-hidden cursor-zoom-in" onClick={() => handleImageClick(selectedImage)}>
@@ -102,7 +101,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                   </div>
               )}
             </div>
-            <div className="md:col-span-2 flex flex-col justify-center p-8 space-y-6">
+            <div className="md:col-span-1 flex flex-col justify-center p-8 space-y-6">
               <DialogHeader>
                 <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
                 <DialogDescription className="text-lg text-muted-foreground pt-2">
@@ -125,31 +124,31 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
             </div>
           </div>
         </DialogContent>
-      </Dialog>
-
-      {fullscreenImage && (
-        <div 
-          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
-          onClick={handleCloseFullscreen}
-        >
-            <button
-                className="absolute top-4 right-4 text-white z-50 rounded-full bg-black/50 p-2 hover:bg-black/75 transition-colors"
-                onClick={handleCloseFullscreen}
+        {fullscreenImage && (
+          <DialogPortal>
+            <div 
+              className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
+              onClick={handleCloseFullscreen}
             >
-                <X className="h-6 w-6" />
-                <span className="sr-only">Close fullscreen view</span>
-            </button>
-            <div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
-              <Image
-                src={fullscreenImage}
-                alt="Fullscreen project view"
-                fill
-                className="object-contain"
-                data-ai-hint={getHintForUrl(fullscreenImage)}
-              />
+                <button
+                    className="absolute top-4 right-4 text-white z-50 rounded-full bg-black/50 p-2 hover:bg-black/75 transition-colors"
+                    onClick={handleCloseFullscreen}
+                >
+                    <X className="h-6 w-6" />
+                    <span className="sr-only">Close fullscreen view</span>
+                </button>
+                <div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
+                  <Image
+                    src={fullscreenImage}
+                    alt="Fullscreen project view"
+                    fill
+                    className="object-contain"
+                    data-ai-hint={getHintForUrl(fullscreenImage)}
+                  />
+                </div>
             </div>
-        </div>
-      )}
-    </>
+          </DialogPortal>
+        )}
+      </Dialog>
   );
 }

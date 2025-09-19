@@ -28,7 +28,7 @@ export function Hero() {
                   className="absolute -inset-1.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"
                   style={{ animation: `pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite` }}
                 ></div>
-                <Avatar className="relative h-48 w-48 md:h-56 md:w-56 border-4 border-cyan-400/50 shadow-2xl shadow-cyan-500/20">
+                <Avatar className="relative h-56 w-56 md:h-64 md:w-64 border-4 border-cyan-400/50 shadow-2xl shadow-cyan-500/20">
                     <AvatarImage 
                       src="https://picsum.photos/seed/avatar/400/400"
                       alt="Freyza Kusuma"

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -9,9 +11,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 
 const projects = [
   {
@@ -44,6 +46,10 @@ export function Portfolio() {
   const getImage = (id: string) => {
     return PlaceHolderImages.find((img) => img.id === id);
   };
+  
+  const autoplayPlugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
 
   return (
     <section id="portfolio" className="w-full py-12 md:py-24 lg:py-32 bg-background/80 backdrop-blur-md scroll-mt-16">
@@ -63,7 +69,12 @@ export function Portfolio() {
               <div key={project.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000 group/card" style={{animationDelay: `${index * 150}ms`, perspective: '1000px'}}>
                 <Card className="overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 bg-card/50 border-border/50 hover:bg-card/70 group-hover/card:border-primary/50" style={{ transformStyle: 'preserve-3d' }}>
                   {projectImage && (
-                    <Carousel className="relative w-full group/carousel">
+                    <Carousel 
+                        className="relative w-full group/carousel"
+                        plugins={[autoplayPlugin.current]}
+                        onMouseEnter={autoplayPlugin.current.stop}
+                        onMouseLeave={autoplayPlugin.current.play}
+                    >
                       <CarouselContent>
                         {projectImage.imageUrls.map((url, i) => (
                            <CarouselItem key={i}>
@@ -81,8 +92,6 @@ export function Portfolio() {
                            </CarouselItem>
                         ))}
                       </CarouselContent>
-                       <CarouselPrevious className="left-4 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300" />
-                      <CarouselNext className="right-4 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300" />
                     </Carousel>
                   )}
                   <CardHeader>

@@ -63,11 +63,11 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
       }}>
         <DialogContent 
           hideCloseButton
-          className="max-w-6xl w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex flex-col p-4 sm:p-6 rounded-lg"
+          className="max-w-6xl w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex flex-col p-4 rounded-lg"
         >
            <DialogClose asChild>
             <button
-                className="absolute right-2 top-2 z-50 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+                className="absolute right-4 top-4 z-50 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
               >
               <X className="h-5 w-5" />
               <span className="sr-only">Close</span>

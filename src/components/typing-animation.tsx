@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { cn } from "@/lib/utils";
 
 interface TypingAnimationProps {
@@ -11,13 +11,13 @@ interface TypingAnimationProps {
   delay?: number;
 }
 
-export function TypingAnimation({
+const TypingAnimationComponent = ({
   words,
   className,
   typingSpeed = 150,
   deletingSpeed = 100,
   delay = 2000,
-}: TypingAnimationProps) {
+}: TypingAnimationProps) => {
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -56,3 +56,7 @@ export function TypingAnimation({
     </div>
   );
 }
+
+TypingAnimationComponent.displayName = "TypingAnimation";
+
+export const TypingAnimation = memo(TypingAnimationComponent);

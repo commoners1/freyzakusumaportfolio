@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { TypingAnimation } from "./typing-animation";
+import Image from "next/image";
 
 export function Hero() {
   const creativeRoles = [
@@ -28,7 +29,15 @@ export function Hero() {
                   style={{ animation: `pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite` }}
                 ></div>
                 <Avatar className="relative h-44 w-44 md:h-52 md:w-52 border-4 border-cyan-400/50 shadow-2xl shadow-cyan-500/20">
-                    <AvatarImage src="https://picsum.photos/seed/avatar/400/400" data-ai-hint="woman portrait" />
+                    <Image 
+                      src="https://picsum.photos/seed/avatar/400/400"
+                      alt="Freyza Kusuma"
+                      width={400}
+                      height={400}
+                      className="aspect-square h-full w-full"
+                      priority
+                      data-ai-hint="woman portrait"
+                    />
                     <AvatarFallback>FK</AvatarFallback>
                 </Avatar>
               </div>
@@ -50,10 +59,10 @@ export function Hero() {
               </p>
             </div>
             <div className="flex flex-col gap-4 min-[400px]:flex-row justify-center pt-4 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
-              <Button asChild size="lg" className="text-base md:text-lg font-semibold py-6 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-cyan-400/40 shadow-lg bg-cyan-400 text-slate-900">
+              <Button asChild size="lg" className="text-sm md:text-lg font-semibold py-6 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-cyan-400/40 shadow-lg bg-cyan-400 text-slate-900">
                 <Link href="#portfolio">View My Work</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-base md:text-lg font-semibold py-6 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10 hover:text-cyan-300 border-cyan-400 text-cyan-400 shadow-[0_0_15px_rgba(73,214,219,0.4)] hover:shadow-[0_0_25px_rgba(73,214,219,0.6)]">
+              <Button asChild variant="outline" size="lg" className="text-sm md:text-lg font-semibold py-6 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:bg-cyan-400/10 hover:text-cyan-300 border-cyan-400 text-cyan-400 shadow-[0_0_15px_rgba(73,214,219,0.4)] hover:shadow-[0_0_25px_rgba(73,214,219,0.6)]">
                 <Link href="#contact">Get in Touch</Link>
               </Button>
             </div>

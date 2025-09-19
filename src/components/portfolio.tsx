@@ -58,7 +58,7 @@ export function Portfolio() {
             </p>
           </div>
         </div>
-        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:gap-12 pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 pt-12">
           {projects.map((project, index) => {
             const projectImage = getImage(project.id);
             const autoplayPlugin = React.useRef(

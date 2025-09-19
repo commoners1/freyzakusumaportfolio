@@ -21,7 +21,7 @@ export function Hero() {
        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
       <div className="container px-4 md:px-6 relative text-center mx-auto">
         <div className="grid gap-8">
-          <div className="flex flex-col justify-center items-center space-y-8">
+          <div className="flex flex-col justify-center items-center space-y-10">
             <div className="flex justify-center items-center animate-in fade-in zoom-in-50 duration-1000 delay-500">
               <div className="relative group">
                 <div 

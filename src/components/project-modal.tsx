@@ -62,8 +62,8 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
           onClose();
         }
       }}>
-        <DialogContent className="sm:max-w-6xl p-0">
-          <div className="grid grid-cols-1 md:grid-cols-2/3">
+        <DialogContent className="sm:max-w-6xl p-0 flex flex-col max-h-[90vh]">
+          <div className="grid grid-cols-1 md:grid-cols-2/3 overflow-y-auto">
             <div className="flex flex-col items-center justify-center p-4 sm:p-8 bg-muted/50">
               {selectedImage ? (
                   <div className="flex flex-col gap-4 w-full">
@@ -110,7 +110,9 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
               </DialogHeader>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">{tag}</Badge>
+                    <Badge key={tag} variant="secondary" className="transition-all duration-300 bg-primary/10 text-primary hover:bg-primary/20 shadow-[0_0_10px_-2px_hsl(var(--primary))] hover:shadow-[0_0_15px_-3px_hsl(var(--primary))]">
+                    {tag}
+                  </Badge>
                 ))}
               </div>
               <div className="flex gap-4 pt-4">

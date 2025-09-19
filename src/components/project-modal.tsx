@@ -62,7 +62,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
           onClose();
         }
       }}>
-        <DialogContent className="sm:max-w-6xl flex flex-col max-h-[90vh] p-4 sm:p-6">
+        <DialogContent className="sm:max-w-6xl flex flex-col max-h-[90vh] p-4">
           <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto pr-2">
             <div className="flex flex-col items-start justify-start gap-4">
               {selectedImage ? (

@@ -53,8 +53,8 @@ export function Experience() {
               className="relative mb-8 md:mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000"
               style={{animationDelay: `${index * 150}ms`}}
             >
-              <div className="md:flex items-start">
-                  <div className="absolute left-6 top-1 -translate-x-1/2 md:left-1/2 md:top-0 z-10">
+              <div className="flex">
+                  <div className="absolute left-6 top-0 -translate-x-1/2 md:left-1/2 z-10">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
                       <Briefcase className="h-6 w-6" />
                     </div>
@@ -64,7 +64,7 @@ export function Experience() {
                     index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"
                   } flex flex-col ${index % 2 === 0 ? 'md:items-end' : 'md:items-start'}`}
                 >
-                  <div className={`bg-card/50 border-border/50 p-6 rounded-lg shadow-md max-w-md w-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1 ${index % 2 !== 0 ? 'md:ml-auto' : 'md:mr-auto'}`}>
+                  <div className={`bg-card/50 border-border/50 p-6 rounded-lg shadow-md max-w-md w-full transition-all duration-300 hover:shadow-xl hover:border-primary/50 hover:-translate-y-1 md:-mt-1 ${index % 2 !== 0 ? 'md:ml-auto' : 'md:mr-auto'}`}>
                     <h3 className="text-xl font-bold font-headline">{item.title}</h3>
                     <p className="text-primary font-semibold text-base mb-1">{item.company}</p>
                     <Badge variant="secondary" className="mb-3">{item.date}</Badge>

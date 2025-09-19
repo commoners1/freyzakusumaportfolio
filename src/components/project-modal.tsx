@@ -63,7 +63,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
       }}>
         <DialogContent 
           hideCloseButton
-          className="max-w-6xl w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex flex-col p-4 rounded-lg"
+          className="max-w-6xl w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex flex-col p-4 sm:p-6 rounded-lg"
         >
            <DialogClose asChild>
             <button
@@ -73,7 +73,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
               <span className="sr-only">Close</span>
             </button>
            </DialogClose>
-           <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto pt-4 h-full">
+           <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto pt-8 md:pt-4 h-full">
             <div className="flex flex-col items-center justify-start gap-4">
               {selectedImage ? (
                   <div className="flex flex-col gap-4 w-full">

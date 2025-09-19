@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogClose } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, X } from "lucide-react";
@@ -62,8 +62,15 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
           onClose();
         }
       }}>
-        <DialogContent className="max-w-6xl w-[calc(100vw-2rem)] flex flex-col max-h-[90vh] p-4 rounded-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto pr-2">
+        <DialogContent 
+          hideCloseButton
+          className="max-w-6xl w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex flex-col p-0 rounded-lg"
+        >
+          <DialogClose className="absolute right-2 top-2 z-10 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+            <X className="h-5 w-5" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
+          <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto p-4 pt-8 md:p-8">
             <div className="flex flex-col items-center justify-start gap-4">
               {selectedImage ? (
                   <div className="flex flex-col gap-4 w-full">

@@ -3,25 +3,25 @@ import { Badge } from "@/components/ui/badge";
 
 const experienceData = [
   {
-    title: "Senior Frontend Developer",
-    company: "Tech Solutions Inc.",
-    date: "Jan 2021 - Present",
+    title: "Senior IT Developer",
+    company: "Computer Network Services Group",
+    date: "May 2023 - Oct 2023",
     description:
-      "Led the development of a new client-facing dashboard using Next.js, resulting in a 30% increase in user engagement. Mentored junior developers and implemented a new component library.",
+      "Orchestrated the optimization of diverse websites, leveraging cutting-edge technologies to revolutionize website performance; Resolved critical web development issues across multiple projects, optimizing load times and reducing bounce rates through implementation of advanced caching techniques and performance optimizations; Streamlined the production pipeline by incorporating rigorous testing and debugging procedures, achieved enhanced process efficiency and a 35% decrease in production-related errors; Performed frequent maintenance on several users' and company's databases and websites, optimizing their processes and usage up to 60%.",
   },
   {
-    title: "Web Developer",
-    company: "Creative Agency LLC",
-    date: "Jun 2018 - Dec 2020",
+    title: "Full Stack Developer",
+    company: "Akses Prima Indonesia",
+    date: "Dec 2022 - Apr 2023",
     description:
-      "Developed and maintained client websites using React and WordPress. Collaborated with designers to create responsive and interactive user experiences. Improved website performance by 40% through code optimization.",
+      "Generated websites leveraging extensive technologies, aiding users to modernize business processes considerably; Contributed in plenty of meetings with users, attaining all information regarding a project and its challenges; Enforced daily care on users and the company's website, reducing cases of trouble caused by any cyber-attack; Revamped sites to encounter high performance by executing testing and debugging steps in development mode.",
   },
   {
-    title: "Junior Web Developer",
-    company: "Web Starters Co.",
-    date: "Jul 2017 - May 2018",
+    title: "Software Consultant",
+    company: "IFCA Indonesia - PT IFCA Property365 Indonesia",
+    date: "Nov 2019 - Dec 2022",
     description:
-      "Assisted in the development of e-commerce websites. Gained experience with HTML, CSS, JavaScript, and jQuery. Contributed to building reusable code and libraries for future use.",
+      "Enhanced the speed of project execution by enabling users to set up the IFCA application on their devices, as well as migrating their existing data into it if any; Led users to understand how to access and operate the IFCA application for the first time by conducting training sessions routinely as scheduled; Tailored the IFCA application to align with users' preferences by implementing a user-centric design framework; Proposed various solutions and alternatives to users to answer all concerns regarding the IFCA application, achieving their trust to consult further.",
   },
 ];
 

@@ -57,69 +57,76 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-6xl p-0">
-        <div className="grid md:grid-cols-5">
-          <div className="md:col-span-3 flex flex-col items-center justify-center p-8 bg-muted/50">
-            {selectedImage ? (
-                <div className="flex flex-col gap-4 w-full">
-                    <div className="relative w-full aspect-video rounded-lg shadow-lg overflow-hidden cursor-zoom-in" onClick={() => handleImageClick(selectedImage)}>
-                        <Image
-                            src={selectedImage}
-                            alt={`${project.title} - main view`}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={getHintForUrl(selectedImage)}
-                        />
-                    </div>
-                    {projectImages && projectImages.imageUrls.length > 1 && (
-                        <div className="flex gap-2 justify-center">
-                            {projectImages.imageUrls.map((url, i) => (
-                                <button key={i} onClick={() => setSelectedImage(url)} className={cn("relative w-24 h-16 rounded-md overflow-hidden transition-all duration-200 ring-offset-background ring-offset-2 focus:outline-none focus:ring-2 focus:ring-ring", {
-                                    "ring-2 ring-primary": selectedImage === url,
-                                    "hover:opacity-80": selectedImage !== url
-                                })}>
-                                    <Image
-                                        src={url}
-                                        alt={`${project.title} - thumbnail ${i + 1}`}
-                                        fill
-                                        className="object-cover"
-                                        data-ai-hint={projectImages.imageHints[i]}
-                                    />
-                                </button>
-                            ))}
-                        </div>
-                    )}
-                </div>
-            ) : (
-                <div className="w-full aspect-video bg-muted rounded-lg flex items-center justify-center">
-                    <p>No images available</p>
-                </div>
-            )}
-          </div>
-          <div className="md:col-span-2 flex flex-col justify-center p-8 space-y-6">
-            <DialogHeader>
-              <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
-              <DialogDescription className="text-lg text-muted-foreground pt-2">
-                {project.description}
-              </DialogDescription>
-            </DialogHeader>
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <Badge key={tag} variant="secondary">{tag}</Badge>
-              ))}
+    <>
+      <Dialog open={isOpen} onOpenChange={(open) => {
+        if (!open) {
+          onClose();
+        }
+      }}>
+        <DialogContent className="sm:max-w-6xl p-0">
+          <div className="grid md:grid-cols-5">
+            <div className="md:col-span-3 flex flex-col items-center justify-center p-8 bg-muted/50">
+              {selectedImage ? (
+                  <div className="flex flex-col gap-4 w-full">
+                      <div className="relative w-full aspect-video rounded-lg shadow-lg overflow-hidden cursor-zoom-in" onClick={() => handleImageClick(selectedImage)}>
+                          <Image
+                              src={selectedImage}
+                              alt={`${project.title} - main view`}
+                              fill
+                              className="object-cover"
+                              data-ai-hint={getHintForUrl(selectedImage)}
+                          />
+                      </div>
+                      {projectImages && projectImages.imageUrls.length > 1 && (
+                          <div className="flex gap-2 justify-center">
+                              {projectImages.imageUrls.map((url, i) => (
+                                  <button key={i} onClick={() => setSelectedImage(url)} className={cn("relative w-24 h-16 rounded-md overflow-hidden transition-all duration-200 ring-offset-background ring-offset-2 focus:outline-none focus:ring-2 focus:ring-ring", {
+                                      "ring-2 ring-primary": selectedImage === url,
+                                      "hover:opacity-80": selectedImage !== url
+                                  })}>
+                                      <Image
+                                          src={url}
+                                          alt={`${project.title} - thumbnail ${i + 1}`}
+                                          fill
+                                          className="object-cover"
+                                          data-ai-hint={projectImages.imageHints[i]}
+                                      />
+                                  </button>
+                              ))}
+                          </div>
+                      )}
+                  </div>
+              ) : (
+                  <div className="w-full aspect-video bg-muted rounded-lg flex items-center justify-center">
+                      <p>No images available</p>
+                  </div>
+              )}
             </div>
-            <div className="flex gap-4 pt-4">
-               <Button asChild className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40 shadow-primary/30">
-                <Link href="#">Live Demo <ArrowUpRight /></Link>
-              </Button>
-              <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary shadow-[0_0_15px_-2px_hsl(var(--primary))] hover:shadow-[0_0_25px_-5px_hsl(var(--primary))]">
-                <Link href="#">View Code</Link>
-              </Button>
+            <div className="md:col-span-2 flex flex-col justify-center p-8 space-y-6">
+              <DialogHeader>
+                <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
+                <DialogDescription className="text-lg text-muted-foreground pt-2">
+                  {project.description}
+                </DialogDescription>
+              </DialogHeader>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary">{tag}</Badge>
+                ))}
+              </div>
+              <div className="flex gap-4 pt-4">
+                 <Button asChild className="transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40 shadow-primary/30">
+                  <Link href="#">Live Demo <ArrowUpRight /></Link>
+                </Button>
+                <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-primary/10 hover:text-primary border-primary/50 text-primary shadow-[0_0_15px_-2px_hsl(var(--primary))] hover:shadow-[0_0_25px_-5px_hsl(var(--primary))]">
+                  <Link href="#">View Code</Link>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </DialogContent>
+        </DialogContent>
+      </Dialog>
+
       {fullscreenImage && (
         <div 
           className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
@@ -143,6 +150,6 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
             </div>
         </div>
       )}
-    </Dialog>
+    </>
   );
 }

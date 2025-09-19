@@ -62,9 +62,9 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
           onClose();
         }
       }}>
-        <DialogContent className="sm:max-w-6xl p-0 flex flex-col max-h-[90vh]">
-          <div className="grid grid-cols-1 md:grid-cols-2/3 overflow-y-auto">
-            <div className="flex flex-col items-center justify-center p-4 sm:p-8 bg-muted/50">
+        <DialogContent className="sm:max-w-6xl flex flex-col max-h-[90vh] p-4 sm:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2/3 gap-8 overflow-y-auto">
+            <div className="flex flex-col items-center justify-start gap-4">
               {selectedImage ? (
                   <div className="flex flex-col gap-4 w-full">
                       <div className="relative w-full aspect-video rounded-lg shadow-lg overflow-hidden cursor-zoom-in" onClick={() => handleImageClick(selectedImage)}>
@@ -101,7 +101,7 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                   </div>
               )}
             </div>
-            <div className="flex flex-col justify-center p-8 space-y-6">
+            <div className="flex flex-col justify-center space-y-6">
               <DialogHeader className="text-center md:text-left">
                 <DialogTitle className="text-3xl font-bold font-headline">{project.title}</DialogTitle>
                 <DialogDescription className="text-lg text-muted-foreground pt-2">

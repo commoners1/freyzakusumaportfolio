@@ -33,6 +33,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    unoptimized: true,
   },
   compress: true,
   poweredByHeader: false,
@@ -40,6 +41,9 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
   },
+  output: 'export',
+  basePath: '/freyzakusumaportfolio',
+  assetPrefix: '/freyzakusumaportfolio/',
 };
 
 export default nextConfig;

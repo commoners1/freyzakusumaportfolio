@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { TypingAnimation } from "./typing-animation";
 import Image from "next/image";
+import myProfile from '@images/my-profile.png'
 
 export function Hero() {
   const creativeRoles = [
@@ -30,12 +31,13 @@ export function Hero() {
                 ></div>
                 <Avatar className="relative h-56 w-56 md:h-64 md:w-64 border-4 border-cyan-400/50 shadow-2xl shadow-cyan-500/20">
                     <AvatarImage 
-                      src="https://picsum.photos/seed/avatar/400/400"
+                      src={myProfile.src}
                       alt="Freyza Kusuma"
-                      className="aspect-square h-full w-full"
-                      data-ai-hint="woman portrait"
+                      className="aspect-square h-full w-full object-cover"
                     />
-                    <AvatarFallback>FK</AvatarFallback>
+                    <AvatarFallback>
+                      <Image src={myProfile} alt="Freyza Kusuma" className="aspect-square h-full w-full object-cover" />
+                    </AvatarFallback>
                 </Avatar>
               </div>
             </div>

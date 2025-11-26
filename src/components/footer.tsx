@@ -21,11 +21,11 @@ export function Footer() {
           </p>
         </div>
         <div className="flex items-center gap-4">
-            <Link href="#" prefetch={false} className="group rounded-full p-2 transition-all duration-300 hover:bg-primary/10">
+            <Link href="https://github.com/commoners1" prefetch={false} className="group rounded-full p-2 transition-all duration-300 hover:bg-primary/10">
                 <Github className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-primary" />
                 <span className="sr-only">GitHub</span>
             </Link>
-            <Link href="#" prefetch={false} className="group rounded-full p-2 transition-all duration-300 hover:bg-primary/10">
+            <Link href="https://www.linkedin.com/in/freyza-kusuma-157f05/" prefetch={false} className="group rounded-full p-2 transition-all duration-300 hover:bg-primary/10">
                 <Linkedin className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-primary" />
                  <span className="sr-only">LinkedIn</span>
             </Link>

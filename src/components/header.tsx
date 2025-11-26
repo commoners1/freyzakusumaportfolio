@@ -75,7 +75,7 @@ export function Header() {
           "sticky top-0 z-50 w-full transition-all duration-300",
           scrolled || mobileMenuOpen
             ? "border-b border-primary/20 bg-background/95 backdrop-blur-lg shadow-[0_4px_10px_-5px_hsl(var(--primary))]"
-            : "bg-transparent"
+            : "bg-background/80 backdrop-blur-sm"
         )}
       >
         <div className="container flex h-16 items-center justify-between mx-auto px-4 md:px-6">

@@ -1,54 +1,55 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogPortal, DialogClose } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, X } from "lucide-react";
-import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+
+type ProjectImageDetails = {
+  id: string;
+  images: StaticImageData[];
+}
 
 type Project = {
   id: string;
   title: string;
+  shortDesc: string;
   description: string;
   tags: string[];
+  imageDetails: ProjectImageDetails;
+  liveDemoUrl: string | null;
+  codeUrl: string | null;
 };
 
 interface ProjectModalProps {
   project: Project;
-  projectImages?: ImagePlaceholder;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function ProjectModal({ project, projectImages, isOpen, onClose }: ProjectModalProps) {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
+  const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
+  const [fullscreenImage, setFullscreenImage] = useState<StaticImageData | null>(null);
 
 
   useEffect(() => {
-    if (projectImages && projectImages.imageUrls.length > 0) {
-      setSelectedImage(projectImages.imageUrls[0]);
+    if (project.imageDetails && project.imageDetails.images.length > 0) {
+      setSelectedImage(project.imageDetails.images[0]);
     } else {
       setSelectedImage(null);
     }
-     // Reset fullscreen when modal opens/closes or project changes
+
     setFullscreenImage(null);
-  }, [projectImages, isOpen, project]);
+  }, [project.imageDetails, isOpen, project]);
 
   if (!project) return null;
 
-  const getHintForUrl = (url: string) => {
-    if (!projectImages) return undefined;
-    const index = projectImages.imageUrls.findIndex(imgUrl => imgUrl === url);
-    return projectImages.imageHints[index];
-  }
-
-  const handleImageClick = (url: string) => {
-    setFullscreenImage(url);
+  const handleImageClick = (pic: StaticImageData) => {
+    setFullscreenImage(pic);
   }
 
   const handleCloseFullscreen = () => {
@@ -83,22 +84,20 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                               alt={`${project.title} - main view`}
                               fill
                               className="object-cover"
-                              data-ai-hint={getHintForUrl(selectedImage)}
                           />
                       </div>
-                      {projectImages && projectImages.imageUrls.length > 1 && (
+                      {project.imageDetails && project.imageDetails.images.length > 1 && (
                           <div className="flex gap-2 justify-center">
-                              {projectImages.imageUrls.map((url, i) => (
-                                  <button key={i} onClick={() => setSelectedImage(url)} className={cn("relative w-16 h-12 sm:w-24 sm:h-16 rounded-md overflow-hidden transition-all duration-200 ring-offset-background ring-offset-2 focus:outline-none focus:ring-2 focus:ring-ring", {
-                                      "ring-2 ring-primary": selectedImage === url,
-                                      "hover:opacity-80": selectedImage !== url
+                              {project.imageDetails.images.map((image, i) => (
+                                  <button key={i} onClick={() => setSelectedImage(image)} className={cn("relative w-16 h-12 sm:w-24 sm:h-16 rounded-md overflow-hidden transition-all duration-200 ring-offset-background ring-offset-2 focus:outline-none focus:ring-2 focus:ring-ring", {
+                                      "ring-2 ring-primary": selectedImage === image,
+                                      "hover:opacity-80": selectedImage !== image
                                   })}>
                                       <Image
-                                          src={url}
+                                          src={image}
                                           alt={`${project.title} - thumbnail ${i + 1}`}
                                           fill
                                           className="object-cover"
-                                          data-ai-hint={projectImages.imageHints[i]}
                                       />
                                   </button>
                               ))}
@@ -126,12 +125,16 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                 ))}
               </div>
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-                <Button asChild className="transition-transform duration-300 hover:scale-105">
-                  <Link href="#">Live Demo <ArrowUpRight /></Link>
-                </Button>
-                <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-cyan-400/10 hover:text-cyan-300 border-cyan-400 text-cyan-400 shadow-[0_0_15px_rgba(73,214,219,0.4)] hover:shadow-[0_0_25px_rgba(73,214,219,0.6)]">
-                  <Link href="#">View Code</Link>
-                </Button>
+                {project.liveDemoUrl ? (
+                  <Button asChild className="transition-transform duration-300 hover:scale-105">
+                    <Link href={project.liveDemoUrl}>Live Demo <ArrowUpRight /></Link>
+                  </Button>
+                ) : null}
+                {project.codeUrl ? (
+                  <Button asChild variant="outline" className="transition-transform duration-300 hover:scale-105 hover:bg-cyan-400/10 hover:text-cyan-300 border-cyan-400 text-cyan-400 shadow-[0_0_15px_rgba(73,214,219,0.4)] hover:shadow-[0_0_25px_rgba(73,214,219,0.6)]">
+                    <Link href={project.codeUrl}>View Code</Link>
+                  </Button>
+                ) : null}
               </div>
             </div>
           </div>
@@ -156,7 +159,6 @@ export function ProjectModal({ project, projectImages, isOpen, onClose }: Projec
                     alt="Fullscreen project view"
                     fill
                     className="object-contain"
-                    data-ai-hint={getHintForUrl(fullscreenImage)}
                   />
                 </div>
             </div>

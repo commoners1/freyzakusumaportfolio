@@ -8,10 +8,14 @@ const fontHeadline = Poppins({
   subsets: ["latin"], 
   weight: ["700", "800"],
   variable: "--font-headline",
+  display: "swap",
+  preload: true,
 });
 const fontBody = Open_Sans({ 
   subsets: ["latin"], 
   variable: "--font-body",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {

@@ -19,17 +19,17 @@ export function Contact() {
           <div className="space-y-6">
             <div className="flex items-center gap-4 justify-center lg:justify-start">
               <Mail className="h-7 w-7 text-primary" />
-              <p className="text-lg">freyza.kusuma@email.com</p>
+              <p className="text-lg">freyza.kusuma.1@gmail.com</p>
             </div>
             <div className="flex items-center gap-4 justify-center lg:justify-start">
               <Phone className="h-7 w-7 text-primary" />
-              <p className="text-lg">+1 (234) 567-890</p>
+              <p className="text-lg">+62 (822) 8998-2332</p>
             </div>
              <div className="flex items-center gap-6 justify-center lg:justify-start pt-4">
-                <Link href="#" prefetch={false}>
+                <Link href="https://github.com/commoners1" prefetch={false}>
                     <Github className="h-9 w-9 text-foreground hover:text-primary transition-all duration-300 hover:scale-110" />
                 </Link>
-                <Link href="#" prefetch={false}>
+                <Link href="https://www.linkedin.com/in/freyza-kusuma-157f05/" prefetch={false}>
                     <Linkedin className="h-9 w-9 text-foreground hover:text-primary transition-all duration-300 hover:scale-110" />
                 </Link>
              </div>

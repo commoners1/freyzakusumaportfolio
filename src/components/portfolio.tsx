@@ -1,47 +1,19 @@
-
 "use client";
 
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import ProjectImages from "@/constants/projects";
 import React, { useState } from "react";
 import { ProjectModal } from "@/components/project-modal";
 
-const projects = [
-  {
-    id: "project-1",
-    title: "E-commerce Dashboard",
-    description: "A comprehensive dashboard for managing products, orders, and customers for an online store.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "Recharts"],
-  },
-  {
-    id: "project-2",
-    title: "Travel Booking App",
-    description: "A mobile-first application for searching and booking flights, hotels, and rental cars.",
-    tags: ["React Native", "Firebase", "Redux"],
-  },
-  {
-    id: "project-3",
-    title: "SaaS Landing Page",
-    description: "A high-converting landing page for a new software-as-a-service product, with a focus on UX.",
-    tags: ["Next.js", "Framer Motion", "Styled Components"],
-  },
-  {
-    id: "project-4",
-    title: "Creative Personal Blog",
-    description: "A unique and creative blog platform with a custom CMS and a masonry grid layout.",
-    tags: ["Gatsby", "GraphQL", "Contentful"],
-  },
-];
-
-type Project = (typeof projects)[0];
+type Project = (typeof ProjectImages)[0];
 
 export function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const getImage = (id: string) => {
-    return PlaceHolderImages.find((img) => img.id === id);
+    return ProjectImages.find((img) => img.imageDetails.id === id);
   };
 
   const handleCardClick = (project: Project) => {
@@ -64,8 +36,8 @@ export function Portfolio() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12 pt-12">
-          {projects.map((project, index) => {
-            const projectImage = getImage(project.id);
+          {ProjectImages.map((project, index) => {
+            const projectImage = getImage(project.imageDetails.id);
             return (
               <div key={project.title} className="animate-in fade-in slide-in-from-bottom-12 duration-1000 group/card" style={{animationDelay: `${index * 150}ms`, perspective: '1000px'}}>
                 <Card 
@@ -74,21 +46,20 @@ export function Portfolio() {
                   onClick={() => handleCardClick(project)}
                 >
                   {projectImage && (
-                     <div className="relative">
+                     <div className="relative overflow-hidden">
                        <Image
-                         src={projectImage.imageUrls[0]}
+                         src={projectImage.imageDetails.images[0]}
                          alt={`${project.title} preview`}
                          width={600}
                          height={400}
                          className="w-full h-60 object-cover transition-transform duration-500 group-hover/card:scale-105"
-                         data-ai-hint={projectImage.imageHints[0]}
                        />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                       <div className="absolute inset-0 bg-black/0 group-hover/card:bg-black/60 transition-all duration-500"></div>
                      </div>
                   )}
                   <CardHeader>
                     <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardDescription>{project.shortDesc}</CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <div className="flex flex-wrap gap-2">
@@ -105,7 +76,6 @@ export function Portfolio() {
         {selectedProject && (
           <ProjectModal 
             project={selectedProject}
-            projectImages={getImage(selectedProject.id)}
             isOpen={!!selectedProject}
             onClose={handleModalClose}
           />
